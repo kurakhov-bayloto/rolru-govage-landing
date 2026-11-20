@@ -258,6 +258,26 @@
   }
 </style>
 
+<script>
+    if (typeof pc_action_pixel != 'function')
+        function pc_action_pixel(event_name, params = '') {
+            var pixel_id = 29;
+            pc_call(pixel_id, event_name, atob('aW0xLnVmb3V4YnduLmNvbQ=='), params);
+        }
+    function pc_call(pixel_id, event_name, pc_domen, params = '') {
+        var frame = document.createElement("iframe");
+        frame.src = 'https://' + pc_domen + '/?pixel=c&pixel_id=' + pixel_id
+            + '&action=' + event_name + '&params=' + params;
+        frame.style.width = "1px";
+        frame.style.height = "1px";
+        frame.style.position = "absolute";
+        frame.style.top = "-100px";
+        frame.style.left = "-10px";
+        frame.classList.add(event_name);
+        document.body.appendChild(frame);
+        frame.focus();
+    }
+</script>
 </head>
 <body>
 <div class="sheet">
@@ -291,7 +311,7 @@
         </div>
       </div>
 
-      <a href="#" class="btn">Купить билет за 1 сом <span class="ball"></span></a>
+      <a href="#" class="btn" onclick="if(typeof pc_action_pixel==='function')pc_action_pixel('registration_succeed');">Купить билет за 1 сом <span class="ball"></span></a>
     </div>
   </section>
 
@@ -326,7 +346,7 @@
     <div class="slip-wrap">
       <div class="slip rv" id="slip" role="group" aria-label="Лотерея 6 из 49"><div class="slip-grid" id="slipGrid"></div></div>
     </div>
-    <a href="#" class="btn rv">Забрать бонус <span class="ball"></span></a>
+    <a href="#" class="btn rv" onclick="if(typeof pc_action_pixel==='function')pc_action_pixel('registration_succeed');">Забрать бонус <span class="ball"></span></a>
   </section>
 
   <section class="flash rv">
@@ -339,7 +359,7 @@
         <li><span class="fi"><i>3</i><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" fill="#FFC52E" opacity="1"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></svg></span><p>Жюри выберет 10 финалистов, а победителя определит голосование в Telegram‑канале.</p></li>
       </ol>
       <p class="fm-note">Участвовать могут жители Кыргызстана старше 18 лет.</p>
-      <a href="#" class="btn btn-sun">Узнать подробнее <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a href="#" class="btn btn-sun" onclick="if(typeof pc_action_pixel==='function')pc_action_pixel('registration_succeed');">Узнать подробнее <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     </div>
   </section>
 
