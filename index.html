@@ -683,5 +683,20 @@
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(start);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const params = new URLSearchParams(window.location.search);
+    const externalId = params.get('external_id');
+
+    if (!externalId) return;
+
+    document.querySelectorAll('a.btn[href*="click.bayloto.kg"]').forEach(function (button) {
+        const url = new URL(button.href);
+        url.searchParams.set('source', externalId);
+        button.href = url.toString();
+    });
+});
+</script>
 </body>
 </html>
